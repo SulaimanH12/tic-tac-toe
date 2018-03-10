@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+td {
+    border: 2px solid #333;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 70px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    margin-left: -155px; /* Center the board */
+}
+
+table tr:first-child td {
+    border-top: 0; /* removes top line on board */
+}
+
+table tr:last-child td {
+    border-bottom: 0; /* removes bottom line on board */
+}
+
+table tr td:first-child {
+    border-left: 0; /* removes left line on board */
+}
+
+table tr td:last-child {
+    border-right: 0; /* removes right line on board */
+}
+
+.endgame {
+    display: none; /* doesn't display until end of game */
+    width: 200px;
+    top: 175px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    padding: 50px 0;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    font-size: 2em;
+    background-color: rgba(22, 22, 22, 0.8);
+}

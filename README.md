@@ -1,7 +1,7 @@
 # tic-tac-toe
 
 // Not completed yet.
-Rest of Javascript code will be updated in coming days also the CSS for the Restart button 
+Rest of Javascript code will be updated in coming days also the CSS for the Restart button. 
 Game only works for human player currently, AI is not functional
 
 Tic Tac Toe game built using nothing but Vanilla JS. 

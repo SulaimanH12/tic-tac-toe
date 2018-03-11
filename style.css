@@ -57,11 +57,15 @@ button {
     position: absolute;
     top: 43%;
     left: 47.5%;
-    padding: 8px 15px;
+    padding: 10px 15px;
     font-size: 18px;
     background-color: white;
     border-radius: 4px;
     cursor: pointer;
+    border: 1px solid #dcdcdc;
+	display: inline-block;
+	color: #666666;
+    text-decoration: none;
 }
 
 button:hover {

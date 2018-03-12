@@ -36,7 +36,12 @@ function startGame() {
 }
 
 function turnClick(square) {
-    turn(square.target.id, huPlayer);
+    // Makes it that a clicked square can't be clicked again
+    // If the id of a certain square is a number that means it hasn't been clicked
+    if (typeof origBoard[square.target.id] == 'number') {
+        turn(square.target.id, huPlayer);
+        if (!checkWin(origBoard, huPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
+    }
 }
 
 // Board is clickable and 'X' appears on which ever square is clicked
@@ -75,4 +80,36 @@ function gameOver (gameWon) {
     for (var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', turnClick, false);
     }
+    // If game is won by human, text is you win. If lose then you lose.
+    declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose!");
+}
+
+function declareWinner(who) {
+    // Initially the endgame is display none. When winner is declared its display block
+    document.querySelector(".endgame").style.display = 'block';
+    document.querySelector(".endgame .text").innerText = who;
+}
+
+function emptySquares() {
+    // All the squares that are empty will return a number and vice versa
+    return origBoard.filter(s => typeof s == 'number');
+}
+
+function bestSpot() {
+    return emptySquares()[0];
+}
+
+function checkTie() {
+    // If every square is filled up and no one has won = tie
+    if (emptySquares().length == 0) {
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].style.backgroundColor = 'green';
+            cells[i].removeEventListener('click', turnClick, false);
+
+        } 
+        // If the if statement is true then it will return true, if not then false
+        declareWinner('Tie Game!');
+        return true;  
+    }
+    return false;
 }
